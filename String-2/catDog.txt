@@ -1,0 +1,25 @@
+public boolean catDog(String str) {
+  int x = 0;
+  String str2 = str;
+  while(str.indexOf("cat")>=0){
+    x++;
+    int y = str.indexOf("cat");
+    str = str.substring(0,y)+str.substring(y+3);
+  }
+  
+  int z = 0;
+  while(str2.indexOf("dog")>=0){
+    z++;
+    int a = str2.indexOf("dog");
+    str2 = str2.substring(0,a)+str2.substring(a+3);
+  }
+  
+  if(x==z){
+    return true;
+  }
+  else{
+    return false;
+  }
+  
+  
+}

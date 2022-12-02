@@ -1,0 +1,15 @@
+public boolean xyzMiddle(String str) {
+  if(str.indexOf("xyz")==-1){
+    return false;
+  }
+  for(int i = 0;i<=str.length()-3;i++){
+    if(str.substring(i,i+3).equals("xyz")){
+      String first = str.substring(0,i);
+      String second = str.substring(i+3);
+      if(first.length()==second.length()||first.length()-1==second.length()||first.length()==second.length()-1){
+        return true;
+      }
+    }
+  }
+  return false;
+}

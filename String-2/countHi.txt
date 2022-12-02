@@ -1,0 +1,9 @@
+public int countHi(String str) {
+  int x=0;
+  while(str.indexOf("hi")>=0){
+    x++;
+    int y = str.indexOf("hi");
+    str = str.substring(0,y)+str.substring(y+2);
+  }
+  return x;
+}

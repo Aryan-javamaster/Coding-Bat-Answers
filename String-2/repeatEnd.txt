@@ -1,0 +1,8 @@
+public String repeatEnd(String str, int n) {
+  String temp = str.substring(str.length()-n);
+  String result = "";
+  for(int i = 0;i<temp.length();i++){
+    result = result+temp;
+  }
+  return result;
+}

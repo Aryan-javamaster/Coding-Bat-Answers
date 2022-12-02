@@ -1,0 +1,11 @@
+public boolean prefixAgain(String str, int n) {
+
+  String counter = str.substring(0,n);
+  str = str.substring(n);
+  for(int i = 0;i<=str.length()-n;i++){
+    if(str.substring(i,i+n).equals(counter)){
+      return true;
+    }
+  }
+  return false;
+}
