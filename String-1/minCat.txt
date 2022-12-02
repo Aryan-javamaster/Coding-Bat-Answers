@@ -1,0 +1,13 @@
+public String minCat(String a, String b) {
+  int x = a.length();
+  int y = b.length();
+  String finalword;
+  if (a.length()>b.length()){
+    finalword = a.substring(a.length()-y)+b;
+    return finalword;
+  }
+  else {
+    finalword = a+b.substring(b.length()-x);
+    return finalword;
+  }  
+}

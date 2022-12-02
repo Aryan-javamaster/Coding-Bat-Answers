@@ -1,0 +1,9 @@
+public String theEnd(String str, boolean front) {
+  String finalname;
+  if (front ==true){
+    finalname= str.substring(0,1);
+  } else {
+    finalname = str.substring(str.length()-1);
+  }
+  return finalname;
+}
