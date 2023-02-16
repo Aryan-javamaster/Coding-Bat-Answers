@@ -66,15 +66,19 @@ public class SearchAndSort {
         int l = 0;
         int r = random_ints.length - 1;
         int mid = (l + r) / 2;
-        while (random_ints[mid] != target) {
-            if (random_ints[mid] < target) {
+        while (l<=r) {
+          mid = (l + r) / 2;
+          if(random_ints[mid] == target){
+            return mid;
+          }
+            else if (random_ints[mid] < target) {
                 l = mid + 1;
             } else {
                 r = mid - 1;
             }
-            mid = (l + r) / 2;
+            
         }
-        return mid;
+        return -1;
 
     }
 
@@ -86,16 +90,23 @@ public class SearchAndSort {
         int l = 0;
         int r = random_Integers.size() - 1;
         int mid = (l + r) / 2;
-        while (random_Integers.get(mid) != target) {
-            if (random_Integers.get(mid) < target) {
+        while (l<=r) {
+          if(random_Integers.get(mid) == target){
+            return mid;
+          }
+            else if (random_Integers.get(mid) < target) {
                 l = mid + 1;
-            } else {
+            } 
+          else {
                 r = mid - 1;
             }
             mid = (l + r) / 2;
         }
         return mid;
     }
+  /*
+  
+  */
 
     /*
      * ____________________
@@ -145,30 +156,30 @@ public class SearchAndSort {
     // sorts the array instance field using the bubble sort algorithm
     // this is given to you (bubble sort NOT on AP test)
     public void bubbleSortArray() {
-        for (int i = 0; i < random_ints.length; i++) {
-            int outer = random_ints[i];
-            for (int j = i + 1; j < random_ints.length; j++) {
-                int inner = random_ints[j];
-                if (outer > inner) {
-                    random_ints[i] = inner;
-                    random_ints[j] = outer;
-                }
+      boolean temp = true;
+       while(temp){
+         temp = false;
+          for(int i = 0;i<random_ints.length-1;i++){
+            if(random_ints[i+1] < random_ints[i]){
+              temp = true;
+              swapArray(i,i+1);
             }
+          }
         }
     }
 
     // sorts the Array List instance field using the bubble sort algorithm
     // this is given to you (bubble sort NOT on AP Test)
     public void bubbleSortArrayList() {
-        for (int i = 0; i < random_Integers.size(); i++) {
-            int outer = random_Integers.get(i);
-            for (int j = i + 1; j < random_Integers.size(); j++) {
-                int inner = random_Integers.get(j);
-                if (outer > inner) {
-                    random_Integers.set(i, inner);
-                    random_Integers.set(j, outer);
-                }
+      boolean temp = true;
+        while(temp){
+          temp = false;
+          for(int i = 0;i<random_Integers.size()-1;i++){
+            if(random_Integers.get(i+1) < random_Integers.get(i)){
+              swapArrayList(i,i+1);
+              temp  = true;
             }
+          }
         }
 
     }
@@ -210,6 +221,7 @@ public class SearchAndSort {
 
     // swaps the elements at index1 and index2 in the ArrayList instance field
     public void swapArrayList(int index1, int index2) {
+    //  random_Integers.set(index2,random_Integers.set(index1,random_Integers.get(index2)));
         int indexone = random_Integers.get(index1);
         random_Integers.set(index1, random_Integers.get(index2));
         random_Integers.set(index2, indexone);
