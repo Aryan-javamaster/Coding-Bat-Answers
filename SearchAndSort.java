@@ -67,7 +67,7 @@ public class SearchAndSort {
         int r = random_ints.length - 1;
         int mid = (l + r) / 2;
         while (l<=r) {
-          mid = (l + r) / 2;
+         
           if(random_ints[mid] == target){
             return mid;
           }
@@ -76,7 +76,7 @@ public class SearchAndSort {
             } else {
                 r = mid - 1;
             }
-            
+             mid = (l + r) / 2;
         }
         return -1;
 
@@ -133,12 +133,14 @@ public class SearchAndSort {
     public void insertionSortArray() {
         int j = 0;
         for (int i = 1; i < random_ints.length; i++) {
-            j = i;
-            while (j > 0 && random_ints[j - 1] > random_ints[j]) {
-                swapArray(j, j - 1);
-                j--;
-            }
-        }
+           j = i;
+           while (j > 0 && random_ints[j - 1] > random_ints[j]) {
+              random_ints[j-1] = random_ints[j];
+             j--;
+            
+         }
+          random_ints[j] = random_ints[i];
+      }
     }
 
     // sorts the ArrayList instance field using the insertion sort algorithm
@@ -147,9 +149,10 @@ public class SearchAndSort {
         for (int i = 1; i < random_Integers.size(); i++) {
             j = i;
             while (j > 0 && random_Integers.get(j - 1) > random_Integers.get(j)) {
-                swapArrayList(j, j - 1);
+                random_Integers.set(j-1,random_Integers.get(j));
                 j--;
             }
+          random_Integers.set(j,random_Integers.get(i));
         }
     }
 
